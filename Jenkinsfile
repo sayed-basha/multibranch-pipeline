@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('build war file') {
             steps {
-                sh 'mvn clean install'
+                sh '/opt/maven/bin/mvn clean install'
             }
         }
         stage('Build & Tag Docker Image') {
