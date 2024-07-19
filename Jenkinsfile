@@ -16,7 +16,7 @@ pipeline {
                     dir('target') {
 
                     withDockerRegistry(credentialsId: 'github-creds') {
-                        sh "docker build -t basha999/blue:v$BUILD_NUMBER ."
+                        sh "docker build -t basha999/blue:v$BUILD_NUMBER -f Dockerfile ."
                     }
                         }
                 }
