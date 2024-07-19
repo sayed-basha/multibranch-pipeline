@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.9.8'
+        jdk 'Java 17.0.11'
+    }
 
     stages {
         stage('build war file') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/multibranch_main && mvn clean install'
+                sh 'mvn clean install'
             }
         }
         stage('Build & Tag Docker Image') {
