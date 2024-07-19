@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build war file') {
             steps {
-                sh 'cd multibranch_main && mvn clean install'
+                sh 'cd /var/lib/jenkins/workspace/multibranch_main && mvn clean install'
             }
         }
         stage('Build & Tag Docker Image') {
