@@ -1,22 +1,21 @@
-
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.9.8'
+    }
 
     stages {
         stage('build war file') {
             steps {
-                sh 'mvn clean install'
+                sh '/opt/maven/bin/mvn clean install'
             }
         }
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    dir('target') {
-
                     withDockerRegistry(credentialsId: 'github-creds') {
                         sh "docker build -t basha999/green:v$BUILD_NUMBER ."
                     }
-                        }
                 }
             }
         }
