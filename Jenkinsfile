@@ -13,12 +13,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    dir('target') {
-
                     withDockerRegistry(credentialsId: 'github-creds') {
                         sh "docker build -t basha999/blue:v$BUILD_NUMBER ."
                     }
-                        }
                 }
             }
         }
