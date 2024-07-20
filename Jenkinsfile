@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'github-creds') {
-                        sh "docker build -t basha999/yellow:v$BUILD_NUMBER ."
+                        sh "docker build -t basha999/frontend-app:v$BUILD_NUMBER ."
                     }
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'github-creds') {
-                        sh "docker push basha999/yellow:v$BUILD_NUMBER "
+                        sh "docker push basha999/frontend-app:v$BUILD_NUMBER "
                     }
                 }
             }
